@@ -33,28 +33,46 @@ class SortedNatList:
 		
 	def __isAppropriate(self, arg):
 		# TODO????: Optional Helper Function: Check if something is a natural (Ints > 0)
-		pass
+		if type(arg) != type("a"):
+			return False
+		if len(arg) > 1 or not arg.isalpha():
+			return False
+		else:
+			self.__data = arg
+			return True
 			
 	def insert(self,arg):
 		# TODO: Return the list with arg in the correct order (if arg is natural)
-		pass
+		if __isAppropriate(self,arg) == True:
+			
 		
 	def remove(self, arg):
 		# TODO: Return the list without arg
-		pass
+		if arg == None:
+			return (self)
+		if head(arg) == self:
+			return tail(arg)
+		new_tail = remove(self, tail(arg))
+		return cons(head(self), new_tail)
 		
 	def contains(self, arg):
 		# TODO: Return True if arg is in the list, False otherwise
-		pass
+		if arg == None:
+			return False
+		for i in range(len(self)):
+			if self[i] == arg:
+				return True
+			else:
+				return False
 				
 	def size(self):
 		# TODO: Return the number of elements in the list
-		pass
+		return len(self)
 	
 	def head(self):
 		# TODO: Return the first element in the list, which should be the minimum
-		pass
+		return self(True)
 		
 	def tail(self):
 		# TODO: Return the last element of the list, which should be the maximum
-		pass
+		return self(False)
